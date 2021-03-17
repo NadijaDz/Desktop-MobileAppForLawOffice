@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Advokati.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.DodajPredmetPage">
+
+    <ContentPage.BindingContext>
+        <vm:DodajPredmetViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <StackLayout>
+                <Label Text="Dodaj predmet" FontSize="30"
+                   FontFamily="Brush Script MT" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+
+                <Grid  Padding="20" VerticalOptions="CenterAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                      
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="9*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"  Grid.Column="0" VerticalTextAlignment="Center" Text="Broj predmeta:*" />
+                    <Entry x:Name="imeInput" Grid.Row="0" Grid.Column="1"   Text="{Binding BrojPredmeta}" />
+                    <Label Text="{Binding BrojPredmetaRequired}" Margin="1" Grid.Row="1"  Grid.Column="1" IsVisible="{Binding VisibleBrojPredmeta}" TextColor="Red"/>
+
+                    <Label Grid.Row="2"  Grid.Column="0" VerticalTextAlignment="Center" Text="Naziv predmeta:*" />
+                    <Entry x:Name="prezimeInput" Grid.Row="2" Grid.Column="1"   Text="{Binding NazivPredmeta}"/>
+                    <Label Text="{Binding NazivPredmetaRequired}" Margin="1" Grid.Row="3"  Grid.Column="1" IsVisible="{Binding VisibleNazivPredmeta}" TextColor="Red"  />
+
+
+                    <Label  Grid.Row="4"  Grid.Column="0" VerticalTextAlignment="Center"  Text="Datum početka:*" />
+                    <DatePicker x:Name="datumPocetkaInput"   Grid.Row="4" Grid.Column="1" 
+                               Date="{Binding DatumPocetka}" 
+                               FontSize="15"   >
+                    </DatePicker>
+                    <Label Text="{Binding DatumPocetkaRequired}" Margin="1" Grid.Row="5"  Grid.Column="1" IsVisible="{Binding VisibleDatumPocetka}" TextColor="Red"/>
+
+
+                    <Label  Grid.Row="6"  Grid.Column="0" VerticalTextAlignment="Center"  Text="Rok završetka:*" />
+                    <DatePicker x:Name="rokZavrsetkaInput"   Grid.Row="6" Grid.Column="1" 
+                               Date="{Binding RokZavrsetka}" 
+                               FontSize="15"   >
+                    </DatePicker>
+                    <Label Text="{Binding RokZavrsetkaRequired}" Margin="1" Grid.Row="7"  Grid.Column="1" IsVisible="{Binding VisibleRokZavrsetka}" TextColor="Red"/>
+
+
+                    <Label Grid.Row="8" Grid.Column="0" VerticalTextAlignment="Center" Text="Klijent:*" />
+                    <Picker ItemsSource="{Binding KlijentiList}" ItemDisplayBinding="{Binding ImePrezime}"  Grid.Row="8" Grid.Column="1" SelectedItem="{Binding SelectedKlijent}" ></Picker>
+                    <Label Text="{Binding KlijentRequired}" Margin="1" Grid.Row="9"  Grid.Column="1" IsVisible="{Binding VisibleKlijent}" TextColor="Red"/>
+
+                    <Label Grid.Row="10" Grid.Column="0" VerticalTextAlignment="Center"  Text="Status:*" />
+                    <Picker ItemsSource="{Binding StatusList}" ItemDisplayBinding="{Binding Naziv}"  Grid.Row="10" Grid.Column="1" SelectedItem="{Binding SelectedStatus}" ></Picker>
+                    <Label Text="{Binding StatusRequired}" Margin="1" Grid.Row="11"  Grid.Column="1" IsVisible="{Binding VisibleStatus}" TextColor="Red"/>
+              
+
+                    <Label Grid.Row="12" Grid.Column="0" VerticalTextAlignment="Center"  Text="Vrsta usluge:*" />
+                    <Picker ItemsSource="{Binding VrstaUslugeList}" ItemDisplayBinding="{Binding Naziv}"  Grid.Row="12" Grid.Column="1" SelectedItem="{Binding SelectedVrstaUsluge}" ></Picker>
+                    <Label Text="{Binding VrstaUslugeRequired}" Margin="1" Grid.Row="13"  Grid.Column="1" IsVisible="{Binding VisibleVrstaUsluge}" TextColor="Red"/>
+
+
+                    <Button Grid.Row="14"  Grid.ColumnSpan="2"   Text="Sačuvaj"  BackgroundColor="Gray" FontSize="18"  Command="{Binding AddCommand}"/>
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

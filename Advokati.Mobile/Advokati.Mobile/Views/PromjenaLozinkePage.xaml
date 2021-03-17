@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Advokati.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.PromjenaLozinkePage">
+
+    <ContentPage.BindingContext>
+        <vm:PromjenaLozinkeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <StackLayout>
+                <Label Text="Promjena lozinke" FontSize="30"
+                   FontFamily="Brush Script MT" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" Margin="0,40,0,0"/>
+
+                <Grid  Padding="20" VerticalOptions="CenterAndExpand">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="9*" />
+                    </Grid.ColumnDefinitions>
+                
+
+                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"  Text="Stara lozinka:*" />
+                    <Entry x:Name="korisnickoImeInput" Grid.Row="0" Grid.Column="1"    Text="{Binding OldPassword}" IsPassword="True"  Unfocused="Entry_Unfocused" />
+                    <Label Text="{Binding KorisnickoImeRequired}" Margin="1" Grid.Row="1"  Grid.Column="1" IsVisible="{Binding VisibleKorisnickoIme}" TextColor="Red"/>
+
+
+                    <Label Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" Text="Nova lozinka:*" />
+                    <Entry x:Name="lozinkaInput" Grid.Row="2" Grid.Column="1"     Text="{Binding Password}" IsPassword="True" />
+                    <Label Text="{Binding PasswordRequired}" Margin="1" Grid.Row="3"  Grid.Column="1" IsVisible="{Binding VisiblePassword}" TextColor="Red"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" VerticalTextAlignment="Center"  Text="Potvrda nove lozinke:*" />
+                    <Entry x:Name="potvrdaLozinkeInput" Grid.Row="4" Grid.Column="1"   Text="{Binding ConfirmPassword}" IsPassword="True" />
+                    <Label Text="{Binding PasswordConfirmationRequired}" Margin="1" Grid.Row="5"  Grid.Column="1" IsVisible="{Binding VisiblePasswordConfirmation}" TextColor="Red"/>
+
+
+                    <Button Grid.Row="6"  Grid.ColumnSpan="2"   Text="Sačuvaj"  BackgroundColor="Gray" FontSize="18"   Command="{Binding SaveCommand}"
+                        Clicked="ButtonSacuvaj_Clicked"/>
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

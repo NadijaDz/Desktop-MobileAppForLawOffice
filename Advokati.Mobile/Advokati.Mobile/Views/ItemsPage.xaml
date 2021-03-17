@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Advokati.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.ItemsPage"     Title="{Binding Title}"     
+            >
+    <!--Title="{Binding Title}"
+             x:Name="BrowseItemsPage"-->
+    
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>-->
+
+    <ContentPage.BindingContext>
+        <vm:PocetnaViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+
+            <Label Text="Dobrodošli u LawTeam applikaciju" FontSize="30"
+                   FontFamily="Brush Script MT" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+
+
+        <Grid  Padding="20" VerticalOptions="CenterAndExpand">
+
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="100" />
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+        
+           
+            </Grid.RowDefinitions>
+
+           
+
+            <Frame BorderColor="Gray"
+                   CornerRadius="5"
+                   Padding="8" Grid.Row="0">
+                <StackLayout  HorizontalOptions="Center">
+                    <Label Text="Predmeta"
+                           FontSize="Medium"
+                           FontAttributes="Bold" />
+                    <BoxView Color="Gray"
+                             HeightRequest="2"
+                             HorizontalOptions="Fill" />
+                    <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="25" Text="{Binding BrojPredmeta}"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="Gray"
+                   CornerRadius="5"
+                   Padding="8" Grid.Row="1">
+                <StackLayout  HorizontalOptions="Center">
+                    <Label Text="Ročišta"
+                           FontSize="Medium"
+                           FontAttributes="Bold" />
+                    <BoxView Color="Gray"
+                             HeightRequest="2"
+                             HorizontalOptions="Fill" />
+                    <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="25" Text="{Binding BrojRocista}"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="Gray"
+                   CornerRadius="5"
+                   Padding="8" Grid.Row="2">
+                <StackLayout  HorizontalOptions="Center">
+                    <Label Text="Sastanaka"
+                           FontSize="Medium"
+                           FontAttributes="Bold" />
+                    <BoxView Color="Gray"
+                             HeightRequest="2"
+                             HorizontalOptions="Fill" />
+                    <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="25" Text="{Binding BrojSastanaka}"/>
+                </StackLayout>
+            </Frame>
+
+
+         
+
+
+        </Grid>
+
+      
+
+
+        <!--<ListView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemSelected="OnItemSelected">
+            <d:ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>First Item</x:String>
+                    <x:String>Second Item</x:String>
+                    <x:String>Third Item</x:String>
+                    <x:String>Forth Item</x:String>
+                    <x:String>Fifth Item</x:String>
+                    <x:String>Sixth Item</x:String>
+
+                    <x:String>Predmeti:</x:String>
+                    
+                </x:Array>
+            </d:ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Text}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding Description}" 
+                                d:Text="Item descripton"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+
+
+
+    </StackLayout>
+    
+</ContentPage>

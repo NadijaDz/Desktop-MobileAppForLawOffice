@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Advokati.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.RezervisiSastanak">
+
+ 
+    <ContentPage.BindingContext>
+        <vm:RezervisiSastanakViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+           
+            <Label Text="Rezervacija sastanka" FontSize="30"
+                   FontFamily="Brush Script MT" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" Margin="0,40,0,0"/>
+
+
+            <Grid  Padding="20" VerticalOptions="CenterAndExpand">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                
+                 
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="9*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"  Grid.Column="0" VerticalTextAlignment="Center" Text="Vrsta usluge:*" />
+                <Picker ItemsSource="{Binding VrstaUslugeList}" SelectedItem="{Binding SelectedVrstaUsluge}" ItemDisplayBinding="{Binding Naziv}"  Grid.Row="0" Grid.Column="1"   ></Picker>
+
+
+                <Label Grid.Row="1"  Grid.Column="0" VerticalTextAlignment="Center" Text="Zaposlenik:*" />
+                <Picker ItemsSource="{Binding ZaposleniciList}" ItemDisplayBinding="{Binding ImePrezime}"  Grid.Row="1" Grid.Column="1" SelectedItem="{Binding SelectedZaposlenik}" ></Picker>
+                <Label Text="{Binding ZaposlenikRequired}" Margin="1" Grid.Row="2"  Grid.Column="1" IsVisible="{Binding VisibleZaposlenik}" TextColor="Red"/>
+
+
+
+
+
+                <Label  Grid.Row="3"  Grid.Column="0" VerticalTextAlignment="Center"  Text="Datum sastanka:*" />
+                <DatePicker x:Name="datumSastankaInput"   Grid.Row="3" Grid.Column="1" 
+                               Date="{Binding DatumSastanka}" 
+                               FontSize="15"   >
+                </DatePicker>
+                <Label Text="{Binding DatumSastankaRequired}" Margin="1" Grid.Row="4"  Grid.Column="1" IsVisible="{Binding VisibleDatumSastanka}" TextColor="Red"/>
+
+                
+                <Label Grid.Row="5"  Grid.Column="0" VerticalTextAlignment="Center" Text="Mjesto održavanja:*" />
+                <Entry x:Name="mjestoOdrzavanjaInput" Grid.Row="5" Grid.Column="1"   Text="{Binding MjestoOdrzavanja}"/>
+                <Label Text="{Binding MjestoRequired}" Margin="1" Grid.Row="6"  Grid.Column="1" IsVisible="{Binding VisibleMjesto}" TextColor="Red"  />
+
+                 
+
+                <Label Grid.Row="7" Grid.Column="0" VerticalTextAlignment="Center" Text="Poruka:*" />
+                <Entry x:Name="PorukaInput" Grid.Row="7" Grid.Column="1"  Text="{Binding Poruka}"/>
+                <Label Text="{Binding PorukaRequired}" Margin="1" Grid.Row="8"  Grid.Column="1" IsVisible="{Binding VisiblePoruka}" TextColor="Red"/>
+
+
+                <Button Grid.Row="9"  Grid.ColumnSpan="2"   Text="Rezerviši"  BackgroundColor="Gray" FontSize="18"  Command="{Binding RezervisiCommand}"  />
+
+
+            </Grid>
+
+
+            <Label Text="Preporučuje se advokat za odabranu vrstu usluge" FontSize="23"
+                                   FontFamily="Brush Script MT" 
+                                   VerticalOptions="CenterAndExpand" 
+                                         HorizontalOptions="CenterAndExpand"  IsVisible="{Binding VisibleAdvokatiPreporukaNaslov}"/>
+            <ListView ItemsSource="{Binding AdvokatiList}" ItemSelected="ListView_OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+
+                            <Grid   BackgroundColor="White" Margin="3,3" Padding="10">
+
+                                <!--<StackLayout Grid.Row="3"
+                                                     Orientation="Horizontal">
+
+                                    <Label Text="Preporučuje se advokat za odabranu vrstu usluge" FontSize="23"
+                                   FontFamily="Brush Script MT" 
+                                   VerticalOptions="CenterAndExpand" 
+                                         HorizontalOptions="CenterAndExpand" />
+
+
+                                </StackLayout>-->
+                                <StackLayout Grid.Row="0"
+                                                     Orientation="Horizontal">
+                                    <Label Text="{Binding ImePrezime}" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               FontSize="14"  
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+     
+    </ContentPage.Content>
+</ContentPage>

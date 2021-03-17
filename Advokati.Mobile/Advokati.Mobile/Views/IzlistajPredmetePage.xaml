@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.IzlistajPredmetePage">
+    
+    
+   
+    <ContentPage.Content>
+        <ScrollView>
+         
+
+        <StackLayout>
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="Auto"/>
+                
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"  Grid.Column="0" VerticalTextAlignment="Center" Text="Naziv predmeta" />
+                <Label Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" Text="Status" />
+           
+                <Label Grid.Row="0"  Grid.Column="2" VerticalTextAlignment="Center"  Text="Ukupno" />
+             
+
+            </Grid>
+
+           
+              <ListView  ItemsSource="{Binding PredmetiList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition  Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    
+                                    
+         
+                                </Grid.ColumnDefinitions>
+
+
+                                    <Label  Grid.Column="0" Text="{Binding NazivPredmeta }" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               FontSize="11" />
+
+                                    <Label  Grid.Column="1" Text="{Binding Status }" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               FontSize="11" />
+
+                                    <Label  Grid.Column="2" Text="{Binding Ukupno}" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               FontSize="11"/>
+
+                             
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+                <StackLayout>
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label Grid.Row="0" Grid.Column="0"  Font="Bold,20"  Text="TOTAL:" />
+                        <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="End"   Font="Bold,20" Text="{Binding Total}"   />
+                    </Grid>
+                </StackLayout>
+
+            </StackLayout>
+
+       
+
+
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

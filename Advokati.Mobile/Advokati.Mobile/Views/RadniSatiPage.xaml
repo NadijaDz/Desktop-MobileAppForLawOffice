@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Advokati.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.RadniSatiPage">
+    <ContentPage.BindingContext>
+        <vm:RadniSatiViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Radni sati" FontSize="30"
+                   FontFamily="Brush Script MT"  Margin="0,10,0,0"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Button HorizontalOptions="End" CornerRadius="5" Text="Dodaj radni sat"  BackgroundColor="Gray" FontSize="18" Clicked="OnButtonClicked" IsVisible="{Binding ButtonVisible}"></Button>
+            <ListView ItemsSource="{Binding RadniSatiList}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid   BackgroundColor="White" Margin="3,3" Padding="10">
+
+                                <StackLayout Grid.Row="0"
+                                                     Orientation="Horizontal">
+                                    <Label Text="Broj predmeta:" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                    <Label Text="{Binding BrojPredmeta}" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+
+                                               FontSize="14"/>
+
+                                </StackLayout>
+
+
+                                <StackLayout Grid.Row="1"
+                                                     Orientation="Horizontal">
+                                    <Label Text="Broj radnih sati:" 
+                                               TextColor="Black "
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14" />
+                                    <Label Text="{Binding BrojRadnihSati}" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               FontSize="14" />
+
+                                </StackLayout>
+
+
+                                <StackLayout Grid.Row="2"
+                                                     Orientation="Horizontal">
+                                    <Label Text="Prekovremeni sati:" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                    <Label Text="{Binding PrekovremeniSati}" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+
+                                               FontSize="14"/>
+
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="3"
+                                                     Orientation="Horizontal">
+                                    <Label Text="Cijena po satu:" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                    <Label Text="{Binding CijenaPoSatu}" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+
+                                               FontSize="14"/>
+                                    <Label Text="KM" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+
+                                               FontSize="14"/>
+
+                                </StackLayout>
+
+
+                                <StackLayout Grid.Row="4"
+                                                     Orientation="Horizontal">
+                                    <Label Text="Cijena prekovremenog sata:" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                    <Label Text="{Binding CijenaPrekovremenogSata}" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+
+                                               FontSize="14"/>
+                                    <Label Text="KM" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+
+                                               FontSize="14"/>
+
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="5"
+                                                     Orientation="Horizontal">
+                                    <Label Text="Opis:" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                    <Label Text="{Binding Opis}" 
+                                               TextColor="Black"
+                                               LineBreakMode="NoWrap" 
+
+                                               FontSize="14"/>
+
+                                </StackLayout>
+
+
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

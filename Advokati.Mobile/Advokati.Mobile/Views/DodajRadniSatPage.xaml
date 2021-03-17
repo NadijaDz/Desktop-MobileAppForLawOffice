@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Advokati.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.DodajRadniSatPage">
+    <ContentPage.BindingContext>
+        <vm:DodajRadniSatViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <StackLayout>
+                <Label Text="Dodavanje radnog sata" FontSize="30"
+                   FontFamily="Brush Script MT" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+
+                <Grid  Padding="20" VerticalOptions="CenterAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="9*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Predmet:*" />
+                    <Picker ItemsSource="{Binding PredmetiList}" ItemDisplayBinding="{Binding BrojPredmeta}"  Grid.Row="0" Grid.Column="1" SelectedItem="{Binding SelectedPredmet}" ></Picker>
+                    <Label Text="{Binding PredmetRequired}" Margin="1" Grid.Row="1"  Grid.Column="1" IsVisible="{Binding VisiblePredmet}" TextColor="Red"/>
+
+
+                    <Label Grid.Row="2"  Grid.Column="0" VerticalTextAlignment="Center" Text="Broj radnih sati:*" />
+                    <Entry x:Name="brojRadnihSatiInput" Grid.Row="2" Grid.Column="1"   Text="{Binding BrojRadnihSati}" />
+                    <Label Text="{Binding RadniSatiRequired}" Margin="1" Grid.Row="3"  Grid.Column="1" IsVisible="{Binding VisibleRadniSati}" TextColor="Red"/>
+
+
+                    <Label Grid.Row="4"  Grid.Column="0" VerticalTextAlignment="Center" Text="Prekovremeni sati:*" />
+                    <Entry x:Name="prekovremeniSatiInput" Grid.Row="4" Grid.Column="1"   Text="{Binding PrekovremeniSati}" />
+                    <Label Text="{Binding PrekovremeniSatiRequired}" Margin="1" Grid.Row="5"  Grid.Column="1" IsVisible="{Binding VisiblePrekovremeniSati}" TextColor="Red"/>
+
+                    <Label Grid.Row="6"  Grid.Column="0" VerticalTextAlignment="Center" Text="Cijena po satu:*" />
+                    <Entry x:Name="cijenaPoSatuInput" Grid.Row="6" Grid.Column="1"   Text="{Binding CijenaPoSatu}" />
+                    <Label Text="{Binding CijenaPoSatuRequired}" Margin="1" Grid.Row="7"  Grid.Column="1" IsVisible="{Binding VisibleCijenaPoSatu}" TextColor="Red"/>
+
+                    <Label Grid.Row="8"  Grid.Column="0" VerticalTextAlignment="Center" Text="Cijena prekovremenog sata:*" />
+                    <Entry x:Name="cijenaPrekovremenogSataInput" Grid.Row="8" Grid.Column="1"   Text="{Binding CijenaPrekovremenogSata}" />
+                    <Label Text="{Binding CijenaPrekovremenogSataRequired}" Margin="1" Grid.Row="9"  Grid.Column="1" IsVisible="{Binding VisibleCijenaPrekovremenogSata}" TextColor="Red"/>
+
+                    <Label Grid.Row="10"  Grid.Column="0" VerticalTextAlignment="Center" Text="Opis:*" />
+                    <Entry x:Name="opisInput" Grid.Row="10" Grid.Column="1"   Text="{Binding Opis}" />
+                    <Label Text="{Binding OpisRequired}" Margin="1" Grid.Row="11"  Grid.Column="1" IsVisible="{Binding VisibleOpis}" TextColor="Red"/>
+
+                    <Button Grid.Row="12"  Grid.ColumnSpan="2"   Text="Sačuvaj"  BackgroundColor="Gray" FontSize="18"  Command="{Binding AddCommand}"/>
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

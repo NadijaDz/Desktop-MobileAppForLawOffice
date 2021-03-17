@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Advokati.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.DodajRocistePage">
+    <ContentPage.BindingContext>
+        <vm:DodajRocisteViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <StackLayout>
+                <Label Text="Dodaj ročište" FontSize="30"
+                   FontFamily="Brush Script MT" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+
+                <Grid  Padding="20" VerticalOptions="CenterAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        <RowDefinition  Height="Auto"/>
+                        
+          
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="9*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"  Grid.Column="0" VerticalTextAlignment="Center" Text="Mjesto:*" />
+                    <Entry x:Name="mjestoInput" Grid.Row="0" Grid.Column="1"   Text="{Binding Mjesto}" />
+                    <Label Text="{Binding MjestoRequired}" Margin="1" Grid.Row="1"  Grid.Column="1" IsVisible="{Binding VisibleMjesto}" TextColor="Red"/>
+
+                   
+                    <Label  Grid.Row="2"  Grid.Column="0" VerticalTextAlignment="Center"  Text="Datum ročišta:*" />
+                    <DatePicker x:Name="datumRocistaInput"   Grid.Row="2" Grid.Column="1" 
+                               Date="{Binding DatumRocista}" 
+                               FontSize="15"   >
+                    </DatePicker>
+                    <Label Text="{Binding DatumRocistaRequired}" Margin="1" Grid.Row="3"  Grid.Column="1" IsVisible="{Binding VisibleDatumRocista}" TextColor="Red"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" VerticalTextAlignment="Center" Text="Predmet:*" />
+                    <Picker ItemsSource="{Binding PredmetiList}" ItemDisplayBinding="{Binding BrojPredmeta}"  Grid.Row="4" Grid.Column="1" SelectedItem="{Binding SelectedPredmet}" ></Picker>
+                    <Label Text="{Binding PredmetRequired}" Margin="1" Grid.Row="5"  Grid.Column="1" IsVisible="{Binding VisiblePredmet}" TextColor="Red"/>
+
+                    <Label Grid.Row="6"  Grid.Column="0" VerticalTextAlignment="Center" Text="Napomena:*" />
+                    <Entry x:Name="napomenaInput" Grid.Row="6" Grid.Column="1"   Text="{Binding Napomena}" />
+                    <Label Text="{Binding NapomenaRequired}" Margin="1" Grid.Row="7"  Grid.Column="1" IsVisible="{Binding VisibleNapomena}" TextColor="Red"/>
+
+                    <Button Grid.Row="8"  Grid.ColumnSpan="2"   Text="Sačuvaj"  BackgroundColor="Gray" FontSize="18"  Command="{Binding AddCommand}"/>
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

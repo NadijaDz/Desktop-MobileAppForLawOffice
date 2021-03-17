@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Advokati.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Advokati.Mobile.Views.RegistrationPage" 
+            
+             >
+
+    <NavigationPage.TitleView>
+        <Label Text="REGISTRACIJA"  FontSize="20"
+                   FontFamily="Brush Script MT"
+                HorizontalOptions="CenterAndExpand"
+                   Margin="0,10,0,0" />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            
+            <StackLayout>
+                    
+         
+            <Grid  Padding="20" VerticalOptions="CenterAndExpand">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                 
+                    </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="9*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="1"  Grid.Column="0" VerticalTextAlignment="Center" Text="Ime:*" />
+                <Entry x:Name="imeInput" Grid.Row="1" Grid.Column="1"   Text="{Binding Ime}" />
+                <Label Text="{Binding ImeRequired}" Margin="1" Grid.Row="2"  Grid.Column="1" IsVisible="{Binding VisibleIme}" TextColor="Red"/>
+
+                <Label Grid.Row="3"  Grid.Column="0" VerticalTextAlignment="Center" Text="Prezime:*" />
+                <Entry x:Name="prezimeInput" Grid.Row="3" Grid.Column="1"   Text="{Binding Prezime}"/>
+                <Label Text="{Binding PrezimeRequired}" Margin="1" Grid.Row="4"  Grid.Column="1" IsVisible="{Binding VisiblePrezime}" TextColor="Red"  />
+
+
+                 <Label  Grid.Row="5"  Grid.Column="0" VerticalTextAlignment="Center"  Text="Datum rođenja:*" />
+                 <DatePicker x:Name="datumRodjenjaInput"   Grid.Row="5" Grid.Column="1" 
+                               Date="{Binding DatumRodjenja}" 
+                               FontSize="15"   >
+                </DatePicker>
+                <Label Text="{Binding DatumrodjenjaRequired}" Margin="1" Grid.Row="6"  Grid.Column="1" IsVisible="{Binding VisibleDatumrodjenja}" TextColor="Red"/>
+
+               
+                <Label  Grid.Row="7" Grid.Column="0" VerticalTextAlignment="Center"  Text="Spol:*" />
+                <Picker  Grid.Row="7" Grid.Column="1" x:Name="Spol"    SelectedItem="{Binding Spol}">
+                    <Picker.Items>
+                    
+                        <x:String>M</x:String>
+                        <x:String>Ž</x:String>
+                    </Picker.Items>
+                </Picker>
+                    <Label Text="{Binding SpolRequired}" Margin="1" Grid.Row="8"  Grid.Column="1" IsVisible="{Binding VisibleSpol}" TextColor="Red"/>
+
+                <Label Grid.Row="9" Grid.Column="0" VerticalTextAlignment="Center" Text="JMBG:*" />
+                <Entry x:Name="JMBGInput" Grid.Row="9" Grid.Column="1"  Text="{Binding JMBG}"/>
+                    <Label Text="{Binding JMBGRequired}" Margin="1" Grid.Row="10"  Grid.Column="1" IsVisible="{Binding VisibleJMBG}" TextColor="Red"/>
+
+                <Label Grid.Row="11" Grid.Column="0" VerticalTextAlignment="Center" Text="Adresa:*" />
+                <Entry x:Name="AdresaInput" Grid.Row="11" Grid.Column="1"    Text="{Binding Adresa}"/>
+                    <Label Text="{Binding AdresaRequired}" Margin="1" Grid.Row="12"  Grid.Column="1" IsVisible="{Binding VisibleAdresa}" TextColor="Red"/>
+
+                <Label Grid.Row="13" Grid.Column="0" VerticalTextAlignment="Center"  Text="Email:*" />
+                <Entry x:Name="EmailInput" Grid.Row="13" Grid.Column="1"    Text="{Binding Email}" />
+                <Label Text="{Binding EmailRequired}" Margin="1" Grid.Row="14"  Grid.Column="1" IsVisible="{Binding VisibleEmail}" TextColor="Red"/>
+                <Label Text="{Binding ValidEmail}" Margin="1" Grid.Row="14"  Grid.Column="1" IsVisible="{Binding VisibleValidEmail}" TextColor="Red"/>
+
+                 <Label Grid.Row="15" Grid.Column="0" VerticalTextAlignment="Center"  Text="Telefon:*" />
+                <Entry  x:Name="telefonInput" Grid.Row="15" Grid.Column="1"   Text="{Binding Telefon}"/>
+                    <Label Text="{Binding TelefonRequired}" Margin="1" Grid.Row="16"  Grid.Column="1" IsVisible="{Binding VisibleTelefon}" TextColor="Red"/>
+
+                <Label Grid.Row="17" Grid.Column="0" VerticalTextAlignment="Center"  Text="Grad:*" />
+                <Entry x:Name="gradInput" Grid.Row="17" Grid.Column="1"    Text="{Binding Grad}"/>
+                    <Label Text="{Binding GradRequired}" Margin="1" Grid.Row="18"  Grid.Column="1" IsVisible="{Binding VisibleGrad}" TextColor="Red"/>
+
+                <Label Grid.Row="19" Grid.Column="0" VerticalTextAlignment="Center"  Text="Korisničko ime:*" />
+                <Entry x:Name="korisnickoImeInput" Grid.Row="19" Grid.Column="1"    Text="{Binding Username}"  />
+                <Label Text="{Binding KorisnickoImeRequired}" Margin="1" Grid.Row="20"  Grid.Column="1" IsVisible="{Binding VisibleKorisnickoIme}" TextColor="Red"/>
+
+                <Label Grid.Row="21" Grid.Column="0" VerticalTextAlignment="Center" Text="Lozinka:*" />
+                <Entry x:Name="lozinkaInput" Grid.Row="21" Grid.Column="1"     Text="{Binding Password}" IsPassword="True" />
+                    <Label Text="{Binding PasswordRequired}" Margin="1" Grid.Row="22"  Grid.Column="1" IsVisible="{Binding VisiblePassword}" TextColor="Red"/>
+
+                <Label Grid.Row="23" Grid.Column="0" VerticalTextAlignment="Center"  Text="Potvrda lozinke:*" />
+                <Entry x:Name="potvrdaLozinkeInput" Grid.Row="23" Grid.Column="1"   Text="{Binding ConfirmPassword}" IsPassword="True" />
+                <Label Text="{Binding PasswordConfirmationRequired}" Margin="1" Grid.Row="24"  Grid.Column="1" IsVisible="{Binding VisiblePasswordConfirmation}" TextColor="Red"/>
+
+                <Button Grid.Row="25"  Grid.ColumnSpan="2"   Text="Registruj se"  BackgroundColor="Gray" FontSize="18"  Command="{Binding RegisterCommand}"  />
+
+
+            </Grid>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
